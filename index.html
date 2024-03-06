@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GA4 Playground!</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .submit-btn {}
+  </style>
+</head>
+
+<body>
+  <h1>GA4 Playground!</h1>
+  <form class="form" id="form">
+    <div class="form-row">
+      <label for="agents">Agents:</label>
+      <select id="agents" name="agents">
+        <option value="John">John</option>
+        <option value="Emma">Emma</option>
+        <option value="Michael">Michael</option>
+        <option value="Sophia">Sophia</option>
+        <option value="William">William</option>
+        <option value="Olivia">Olivia</option>
+        <option value="James">James</option>
+        <option value="Ava">Ava</option>
+        <option value="Benjamin">Benjamin</option>
+        <option value="Isabella">Isabella</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="adnVersions">ADN Versions:</label>
+      <select id="adnVersions" name="adnVersions">
+        <option value="7.0.0">7.0.0</option>
+        <option value="7.6.1">7.6.1</option>
+        <option value="7.7.0">7.7.0</option>
+        <option value="8.0.0">8.0.0</option>
+        <option value="9.0.0">9.0.0</option>
+      </select>
+    </div>
+    <input class="submit-btn" type="submit" value="Submit">
+  </form>
+
+  <script>
+    // JavaScript goes here
+    function initial() {
+      console.log('Page is fully loaded');
+    }
+
+    const formElm = document.getElementById('form');
+    const agentsElm = document.getElementById('agents');
+    const adnVersionsElm = document.getElementById('adnVersions');
+
+    formElm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(formElm);
+      const agent = formData.get('agents');
+      const adnVersion = formData.get('adnVersions');
+
+      console.log({ agent, adnVersion });
+
+      // gtag('event', 'adnVersion', {
+      //   value: adnVersion,
+      //   adnVersion
+      // });
+      // gtag('event', 'agent', {
+      //   value: agent,
+      //   agent
+      // });
+    });
+
+    document.addEventListener('DOMContentLoaded', initial);
+  </script>
+</body>
+
+</html>
