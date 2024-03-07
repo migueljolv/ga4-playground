@@ -82,16 +82,15 @@
       const adnVersion = formData.get('adnVersions');
 
       console.log({ agent, adnVersion });
-      gtag('event', 'testing_event', { value: "testing" });
 
-      // gtag('event', 'adnVersion', {
-      //   value: adnVersion,
-      //   adnVersion
-      // });
-      // gtag('event', 'agent', {
-      //   value: agent,
-      //   agent
-      // });
+      gtag('event', 'adnVersion', {
+        value: adnVersion,
+        adnVersion
+      });
+      gtag('event', 'agent', {
+        value: agent,
+        agent
+      });
     });
 
     document.addEventListener('DOMContentLoaded', initial);
