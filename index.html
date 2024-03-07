@@ -9,7 +9,13 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-0V22PDE784');
+    gtag('config', 'G-0V22PDE784', {
+      custom_map: {
+        dimension1: 'agentName',
+        metric1: 'adnVersion',
+      },
+    });
+    window.gtag = gtag;
   </script>
   <title>GA4 Playground!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,23 +84,20 @@
     formElm.addEventListener('submit', function (event) {
       event.preventDefault();
       const formData = new FormData(formElm);
-      const agent = formData.get('agents');
+      const agentName = formData.get('agents');
       const adnVersion = formData.get('adnVersions');
 
-      console.log({ agent, adnVersion });
+      console.log({ agentName, adnVersion });
 
-      gtag('event', 'aaa', {
-        'event_category': 'bbb',
-        'event_label': 'ccc'
+      gtag('event', 'adnVersion_metric', {
+        'event_category': 'Versions',
+        'event_label': 'ADN Version',
+        adnVersion: adnVersion,
       });
-
-      gtag('event', 'adnVersion', {
-        value: adnVersion,
-        adnVersion
-      });
-      gtag('event', 'agent', {
-        value: agent,
-        agent
+      gtag('event', 'agentName_dimension', {
+        'event_category': 'Users',
+        'event_label': 'Agent Name',
+        agentName,
       });
     });
 
