@@ -11,8 +11,8 @@
 
     gtag('config', 'G-0V22PDE784', {
       custom_map: {
-        dimension1: 'agentName',
-        metric1: 'adnVersion',
+        dimension1: 'adnVersion',
+        metric1: 'agentName',
       },
     });
     window.gtag = gtag;
@@ -89,12 +89,12 @@
 
       console.log({ agentName, adnVersion });
 
-      gtag('event', 'adnVersion_metric', {
+      gtag('event', 'adnVersion_dimension', {
         'event_category': 'Versions',
         'event_label': 'ADN Version',
         adnVersion: adnVersion,
       });
-      gtag('event', 'agentName_dimension', {
+      gtag('event', 'agentName_metric', {
         'event_category': 'Users',
         'event_label': 'Agent Name',
         agentName,
