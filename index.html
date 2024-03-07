@@ -27,6 +27,16 @@
       },
     });
     window.gtag = gtag;
+    document.addEventListener('DOMContentLoaded', function () {
+      gtag('event', 'pagina_cargada', {
+        'event_category': 'Navegación',
+        'event_label': 'Página cargada',
+        value: 2
+      });
+      gtag('event', 'adnVersion2', {
+        value: '7.7.0',
+      });
+    });
   </script>
   <title>GA4 Playground!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
