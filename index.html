@@ -83,6 +83,11 @@
 
       console.log({ agent, adnVersion });
 
+      gtag('event', 'aaa', {
+        'event_category': 'bbb',
+        'event_label': 'ccc'
+      });
+
       gtag('event', 'adnVersion', {
         value: adnVersion,
         adnVersion
